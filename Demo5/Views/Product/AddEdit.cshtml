@@ -1,0 +1,90 @@
+﻿
+
+@model Demo5.Models.ProductDto
+@{
+    ViewBag.Title = "Create";
+}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <h5 class="mb-0">Add/Edit Product</h5>
+    </div>
+    <div class="card-body bg-light">
+        <form class="row g-3" method="post" action="/Product/AddEdit" enctype="multipart/form-data">
+            @Html.HiddenFor(m => m.Id)
+            <div class="col-lg-6">
+                <label class="form-label" for="first-name">Name</label>
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label" for="first-name">Tittle</label>
+                @Html.TextBoxFor(m => m.Tittle, new { @class = "form-control" })
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label" for="first-name">Description</label>
+                @Html.TextBoxFor(m => m.Description, null, new { @class = "form-control" })
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label" for="first-name">Url</label>
+                @Html.TextBoxFor(m => m.Url, new { @class = "form-control" })
+            </div>
+            <div class="col-lg-6">
+
+                <label class="form-label" for="first-name">Price</label>
+                @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label" for="first-name">OldPrice</label>
+                @Html.TextBoxFor(m => m.OldPrice, new { @class = "form-control" })
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label" for="first-name">Shipping</label>
+                @Html.TextBoxFor(m => m.Shipping, new { @class = "form-control" })
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label" for="first-name">IsStock</label>
+                @Html.CheckBoxFor(m => m.IsStock, new { @class = "form-check" })
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label" for="first-name">CategoryId</label>
+                @Html.DropDownListFor(m => m.CategoryId, Model.Categories, new { @class = "form-control userplugin" })
+
+
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label" for="first-name">Taglist</label>
+                @Html.DropDownListFor(m => m.Tag, Model.Taglist, new { @class = "form-control userplugin", @multiple = "multiple" })
+
+
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label" for="first-name">Images</label>
+                <input type="file" name="file" id="file"  multiple/>
+
+
+            </div>
+
+
+            <div class="col-12 d-flex justify-content-end">
+
+                <a class="btn btn-secondary" href="/Product/index" style="margin-right: 20px;">Back </a>
+                <button class="btn btn-primary" type="submit">Submit </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function () {
+            $('.userplugin').select2();
+        });
+    </script>
+}

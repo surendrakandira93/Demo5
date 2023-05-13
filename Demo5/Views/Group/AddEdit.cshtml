@@ -1,0 +1,35 @@
+﻿
+@model Demo5.Models.GroupDto
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <h5 class="mb-0">Add/Edit Group</h5>
+    </div>
+    <div class="card-body bg-light">
+        <form class="row g-3" method="post" action="/Group/AddEdit">
+            @Html.HiddenFor(m => m.Id)
+            <div class="col-lg-6">
+                <label class="form-label" for="first-name">Name</label>
+                @Html.TextBoxFor(m => m.Name, null, new { @class = "form-control" })
+            </div>
+            <div class="col-lg-6">
+                <label class="form-label" for="first-name">Parent</label>
+                @Html.DropDownListFor(m => m.ParentId, Model.ParentList,"Select Parent", new { @class = "form-select" })
+            </div>
+
+
+
+            <div class="col-12 d-flex justify-content-end">
+
+                <a class="btn btn-secondary" href="/Group/index" style="margin-right: 20px;">Back </a>
+                <button class="btn btn-primary" type="submit">Submit </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

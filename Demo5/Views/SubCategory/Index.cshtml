@@ -1,0 +1,59 @@
+﻿@model List<Demo5.Models.SubcategoryDto>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="card mb-3">
+    <div class="card-header">
+        <div class="row flex-between-end">
+            <div class="col-auto align-self-center">
+                <h5 class="mb-0">Subcategory List</h5>
+            </div>
+            <div class="col-auto ms-auto">
+                <div class="nav nav-pills nav-pills-falcon flex-grow-1" role="tablist">
+                    <a class="btn btn-sm active" role="tab" href="/Subcategory/AddEdit">
+                        <span class="fas fa-plus"></span> Add Subcategory
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="card-body pt-0">
+        <div class="tab-content">
+            <div class="tab-pane preview-tab-pane active">
+                <div class="table-responsive scrollbar">
+                    <table class="table table-hover table-striped overflow-hidden">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Discription</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="align-middle">
+                                    <td class="text-nowrap">@item.Name</td>
+                                    <td class="text-nowrap">@item.Description</td>
+
+                                    <td>
+
+                                        <a href="/Subcategory/AddEdit/@item.Id">Edit</a>
+                                        <a href="/Subcategory/Delete/@item.Id">Delete</a>
+                                    </td>
+
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
